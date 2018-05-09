@@ -18,16 +18,18 @@ for x in int_details:
     print(x)
 
 # namedtuples are immutable but we can use _replace to change some value
-
+print('filter 1/1/1')
 print(list(filter(lambda s: s.number == '1/1/1', int_details)))
 one = None
 
-# find the entry with number='1/1/1'
+print('find the index of interface number 1/1/1')
 for i,v in enumerate(int_details):
     if v.number == '1/1/1':
         one = i
 
-# replace it's error value
+print("replace it's error value")
+print('before:')
 print(int_details[one])
 int_details[one] = int_details[one]._replace(error='20')
+print('after:')
 print(int_details[one])
