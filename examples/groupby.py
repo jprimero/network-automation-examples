@@ -19,6 +19,7 @@ def interface_error_details(text):
 int_err = interface_error_details(interface_errors)
 int_err_sorted = sorted(int_err, key=itemgetter('name'))
 
+print('using groupby:')
 for name, interfaces in groupby(int_err_sorted, key=itemgetter('name')):
     print(name)
     for i in interfaces:
@@ -32,6 +33,7 @@ interface_errors_by_name = defaultdict(list)
 for row in interface_error_details(interface_errors):
     interface_errors_by_name[row['name']].append(row)
 
+print('using defaultdict:')
 for k,v in interface_errors_by_name.items():
     print(k)
     for i in v:
